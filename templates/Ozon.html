@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ozon searcher</title>
+    <link rel="stylesheet" href="Ozon.css">
+    <link rel="stylesheet" href="index.html">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function runScript() {
+            fetch('/run-script')
+                .then(response => response.text())
+                .then(data => alert(data))
+                .catch(error => alert('Ошибка: ' + error));
+        }
+ 
+
+                const minPrice = $('#min-price').val();
+                const maxPrice = $('#max-price').val();
+                const searchQuery = $('#search-query').val();
+
+                $.ajax({
+                    url: 'flask_ozon', // URL вашего Flask-обработчика
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        minprice: minPrice,
+                        maxprice: maxPrice,
+                        searchquery: searchQuery
+                    }),
+                    success: function(response) {
+                        $('#message').html(`<strong>Парсинг завершен успешно!</strong><br>Найдено товаров: ${response.output.length}`);
+                    },
+                    error: function(xhr) {
+                        try {
+                            const errorMsg = JSON.parse(xhr.responseText).error;
+                            $('#message').html(`<strong>Ошибка при выполнении парсинга:</strong><br>${errorMsg}`);
+                        } catch (e) {
+                            $('#message').html(`<strong>Ошибка при выполнении парсинга:</strong><br>${xhr.responseText}`);
+                        }
+                    }
+                });
+            
+        
+    </script>
+</head>
+<body> 
+    <div class="container">
+        <h1>Укажите название товара, чтобы найти похожие!</h1>
+        <a href="index.html">
+            <img class="image-button" src="Frog_back.png" alt="жабаквак">
+        </a>
+        <div>
+            <img class="frogimg" src="Frog_search.png" alt="лягуха">
+        </div>
+        <div class="text_centr">
+            <label for="min-price">Минимальная цена:</label>
+            <input class="texxt" type="number" id="min-price" placeholder="Укажите сумму" required>
+            <br>
+            <label for="max-price">Максимальная цена:</label>
+            <input class="texxt" type="number" id="max-price" placeholder="Укажите сумму" required>
+            <br>
+            <label for="search-query">Запрос:</label>
+            <input class="texxt" type="text" id="search-query" placeholder="Укажите название" required>
+            <br>
+            <button class="start" id="run-parser" onclick="runParser()">Запустить квапоиск</button>
+            <div>
+                <a class="button_future" href="ozon_products.xlsx">Получить список</a>
+            </div>
+
+            <script>
+            function runParser() {
+                window.location.href = 'ozon_parcer';  // Переход к маршруту Flask
+            }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

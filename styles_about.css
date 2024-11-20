@@ -1,0 +1,69 @@
+body{
+    background-image: url(https://static.vecteezy.com/system/resources/previews/000/132/082/original/swamp-night-free-vector.jpg); 
+    background-size: 1600px 800px;
+    background-repeat: no-repeat ;
+    background-size: cover;
+}
+
+.container {
+    margin: auto;
+    background: rgb(130, 95, 46);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 900px;   
+    height: 1000px;
+    opacity: 0.8;
+    border-radius: 70px;
+    font-size: 20pt
+}
+
+.Загаловок{
+    font-size: 27pt;
+    text-align: center;
+}
+
+.frogimg{
+    margin-top: -160px;
+    margin-left: 840px;
+    width: 160px;
+    height: 160px;
+}
+
+.image-button{
+    margin-top: -150px;
+    margin-left: -340px;
+    width: 190px;
+    height: 190px;
+
+}
+
+.text{
+    margin-top: -60px;
+    margin-left: -300px;
+    font-size: 13pt;
+}
+table {
+    background-color:rgb(rgb(0, 0, 0), green, blue);
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 8px;
+    text-align: left;
+    
+}
+th {
+    background-color:rgb(rgb(65, 57, 0), green, blue);
+}
+.headtable{
+    background-color: #4CAF50;
+}
+
+.centr{
+    text-align: center;
+}
+.imgabout {
+    width: 75px;
+    height: 110px;
+}

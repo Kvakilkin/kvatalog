@@ -1,0 +1,51 @@
+   <!DOCTYPE html>
+   <html lang="ru">
+   <head>
+       <meta charset="UTF-8">
+       <title>CSV в таблицу</title>
+   </head>
+   <body>
+       <input type="file" id="file-input" />
+       <div id="table-container"></div>
+
+       <script src=""></script>
+       <script>
+           document.getElementById('file-input').addEventListener('change', handleFileSelect);
+
+           function handleFileSelect(event) {
+               const f = event.target.files[0];
+               const reader = new FileReader();
+
+               reader.onload = (evt) => {
+                   const bstr = evt.target.result;
+                   const wb = XLSX.read(bstr, {type:'binary'});
+                   const wsname = wb.SheetNames[0];
+                   const ws = wb.Sheets[wsname];
+                   const data = XLSX.utils.sheet_to_csv(ws, {header:1});
+
+                   displayDataInTable(data);
+               };
+
+               reader.readAsBinaryString(f);
+           }
+
+           function displayDataInTable(csvData) {
+               // Разделить CSV на строки
+               const rows = csvData.split('\n');
+               let html = '<table border="1">';
+               
+               rows.forEach(row => {
+                   const columns = row.split(',');
+                   html += '<tr>';
+                   columns.forEach(col => {
+                       html += `<td>${col.trim()}</td>`; // Добавляем данные в ячейки
+                   });
+                   html += '</tr>';
+               });
+               html += '</table>';
+
+               document.getElementById('table-container').innerHTML = html; // Вставляем таблицу в документ
+           }
+       </script>
+   </body>
+   </html>

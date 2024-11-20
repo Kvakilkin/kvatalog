@@ -1,0 +1,85 @@
+body {
+    background-color:   #20c5b7;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/000/132/082/original/swamp-night-free-vector.jpg); 
+    background-size: 1600px 800px;
+    background-repeat: no-repeat ;
+    background-size: cover;
+} 
+
+.container {
+    margin: auto;
+    background: rgb(130, 95, 46);
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 900px;   
+    height: 1000px;
+    opacity: 0.8;
+    border-radius: 70px;
+    font-size: 20pt
+}
+
+button {
+    padding: 20px;
+    background-color: #28a745;
+    color: rgb(0, 0, 0); 
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 20pt;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.text {
+    font-size: 20pt;
+    margin-left: 220px;
+}
+
+button:hover {
+    background-color: rgb(55, 117, 75);
+}
+
+h1{
+    font-size: 27pt;
+    text-align: center;
+}
+
+.texxt{
+    text-align: center;
+}
+
+.image-button{
+    margin-top: -150px;
+    margin-left: -350px;
+    width: 200px;
+    height: 200px;
+
+}
+
+.frogimg{
+    margin-top: -120px;
+    margin-left: 640px;
+    width: 250px;
+    height: 200px;
+}
+
+.text1{
+    position: center;
+}
+
+.text_centr{
+    margin-top: 60px;
+    margin-top: -140px;
+}
+
+.button_future{
+    padding: 20px;
+    background-color: #28a745;
+    color: rgb(0, 0, 0); 
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 20pt;
+    margin-left: 360px;
+    border: none;
+    text-decoration: none;
+}
